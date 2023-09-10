@@ -6,7 +6,8 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   //  baseUrl:'https://www.saucedemo.com/', //(comando do e2e-pedido.cy.js)
-      baseUrl:'http://lojaebac.ebaconline.art.br/minha-conta',
-    chromeWebSecurity: false
+      "baseUrl": "http://lojaebac.ebaconline.art.br/",  // colocar em aspas duplas porque é um arquivo json
+
+        chromeWebSecurity: false
   },
 });

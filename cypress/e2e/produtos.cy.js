@@ -3,7 +3,8 @@
 describe('Funcionalidade Página de produtos', () => {
 
     beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
+       // cy.visit('http://lojaebac.ebaconline.art.br/produtos/') foi retirado a parte que repete nos 3 arqs e colcoado no cypress.config
+        cy.visit('produtos/')
     });
 
     it('Deve selecionar um produto da Lista', () => {
