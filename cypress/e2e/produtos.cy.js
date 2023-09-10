@@ -3,7 +3,7 @@
 describe('Funcionalidade Página de produtos', () => {
 
     beforeEach(() => {
-       // cy.visit('http://lojaebac.ebaconline.art.br/produtos/') foi retirado a parte que repete nos 3 arqs e colcoado no cypress.config
+        // cy.visit('http://lojaebac.ebaconline.art.br/produtos/') foi retirado a parte que repete nos 3 arqs e colcoado no cypress.config
         cy.visit('produtos/')
     });
 
@@ -18,7 +18,7 @@ describe('Funcionalidade Página de produtos', () => {
             //.eq(3)                                    // Para pegar o quarto item da lista
             .contains('Ariel Roll Sleeve Sweatshirt')   // Para pegar um determinado produto
             .click()
-        
+
     });
 
     // Sem variáveis
@@ -36,7 +36,7 @@ describe('Funcionalidade Página de produtos', () => {
 
     //  Colocando variáveis
     // it('Deve adicionar um produto ao carrinho', () => {
-    it.only('Deve adicionar um produto ao carrinho', () => {    // para rodar somente esse teste, utilizar it.only
+    it('Deve adicionar um produto ao carrinho', () => {    // para rodar somente esse teste, utilizar it.only
         var quantidade = 3
 
         cy.get('[class="product-block grid"]')
@@ -49,6 +49,15 @@ describe('Funcionalidade Página de produtos', () => {
         cy.get('.dropdown-toggle > .mini-cart-items').should('contain', quantidade)  // Resultado esperado, substituiu pela variável
         cy.get('.woocommerce-message').should('contain', quantidade + ' × “Abominable Hoodie” foram adicionados no seu carrinho.')  // Resultado esperado, conctenou
 
+    });
+
+    it('Deve adicionar produtos ao carrinho - Usando Comando customizado', () => {
+        //  cy.addProdutos('Abominable Hoodie', 3)
+        cy.addProdutos('Atlas Fitness Tank', 'M', 'Blue', 2)
+    });
+
+    it('Deve adicionar produtos ao carrinho - Usando Comando customizado', () => {
+        cy.addProdutos('Abominable Hoodie', 'XS', 'Red', 5)
     });
 
 });
