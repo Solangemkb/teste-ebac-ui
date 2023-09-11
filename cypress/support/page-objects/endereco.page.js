@@ -18,8 +18,21 @@ class EnderecoPage{                      // criar uma classe que pode começar c
         cy.get('.button').click()
     }
         
-    editarEnderecoEntrega() {            // é um método
+    editarEnderecoEntrega(nome, sobrenome, empresa, país, endereco, numero, cidade, estado, cep) {            // é um método
         // elementos + ações
+        cy.get('.woocommerce-MyAccount-navigation-link--edit-address > a').click()
+        cy.get(':nth-child(2) > .title > .edit').click()
+        cy.get('#shipping_first_name').clear().type(nome)
+        cy.get('#shipping_last_name').clear().type(sobrenome)
+        cy.get('#shipping_company').clear().type(empresa)
+      //  cy.get('#select2-shipping_country-container'),click().type(país).get('aria-haspopup="true"').click()
+        cy.get('#select2-shipping_country-container').click().type(país).click()
+        cy.get('#shipping_address_1').clear().type(endereco)
+        cy.get('#shipping_address_2').clear().type(numero)
+        cy.get('#shipping_city').clear().type(cidade)
+        cy.get('#select2-shipping_state-container').click().type(estado + '{enter}')
+        cy.get('#shipping_postcode').clear().type(cep)
+        cy.get('.button').click()
     }
 
 }
